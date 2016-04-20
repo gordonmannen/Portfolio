@@ -77,7 +77,7 @@ class windowClass(wx.Frame):
                 if z < last24hrs:
                     # Files are only copied from the source folder to the destination folder if they are text files
                     # created or modified within the last 24 hours.  Tested - If script executed multiple times, files that
-                    # meet the paremeters to be copied, these files will be overwritten in the destination folder so that the
+                    # meet the parameters to be copied, these files will be overwritten in the destination folder so that the
                     # latest version/edit is copied.
                     print('File Detected: {}'.format(files))
                     print('Moved File to: {}'.format(destination))
