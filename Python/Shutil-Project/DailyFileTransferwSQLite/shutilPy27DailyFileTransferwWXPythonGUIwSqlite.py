@@ -108,13 +108,13 @@ class Frame(wx.Frame):
         # they will be stored until automated transfer to home office can occur.
         count = 0
         for files in os.listdir(src):
-            if files.endswith(".txt"): # fillter for text files
+            if files.endswith(".txt"): # filter for text files
                 source = (os.path.join(src,files))
                 destination = (os.path.join(dst,files))
                 mtime = (os.path.getmtime(source))
                 timeDiff = time.time() - mtime #Difference from time of file creation or modification until current time 
-                _24hrsAgo = time.time() - (24 *60 *60) #Epoc time for a 24hr period is 86400 seconds
-                last24hrs = time.time() - _24hrsAgo #Seconds that have occured within the last 24 hr period
+                _24hrsAgo = time.time() - (24 *60 *60) #Epoch time for a 24hr period is 86400 seconds
+                last24hrs = time.time() - _24hrsAgo #Seconds that have occurred within the last 24 hr period
                 if timeDiff < last24hrs: #Seconds that have passed since file creation or modification from last 24 hrs
                     count = count + 1
                     print('File detected: {}'.format(files))
@@ -135,7 +135,7 @@ class Frame(wx.Frame):
         self.updateDB()
                     
     def updateDB(self):
-        # Insert timestamp of current check into the datbase
+        # Insert timestamp of current check into the database
         now = time.time()
         conn = sqlite3.connect('dailyFileTransfer.db')
         c = conn.cursor()
