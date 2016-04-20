@@ -6,15 +6,15 @@ import shutil
 
 
 def daily_scriptcopy():
-    sourcepath='E:\GPMDocuments\CurrentProjectCSE-RES\TheTechAcademy\Python Course\Python Step 67 - Scripting Drill\Daily Text Files'
+    sourcepath='C:\Folder A'
 
     for files in os.listdir(sourcepath):
         # Iterate through the source to analyze all 'potential files' to be copied to destination where
         # they will be stored until automated transfer to home office can occur.
         if files.endswith(".txt"):
             # limit by text file.
-            source = 'E:\GPMDocuments\CurrentProjectCSE-RES\TheTechAcademy\Python Course\Python Step 67 - Scripting Drill\Daily Text Files\{}'.format(files)
-            destinationpath = 'E:\GPMDocuments\CurrentProjectCSE-RES\TheTechAcademy\Python Course\Python Step 67 - Scripting Drill\Send to Home Office\{}'.format(files)
+            source = 'C:\Folder A\{}'.format(files)
+            destinationpath = 'C:\Folder B\{}'.format(files)
             mtime = (os.path.getmtime(source))
 
             x = time.time() - mtime
