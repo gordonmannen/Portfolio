@@ -5,6 +5,8 @@ using System.Text;
 using System.IO;
 using System.Threading.Tasks;
 
+namespace DailyFileTransfer
+{
     class Program
     {
         static void Main(string[] args)
@@ -46,3 +48,4 @@ using System.Threading.Tasks;
                 return false;
         }
     }
+}
