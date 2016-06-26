@@ -1,0 +1,535 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/24/2016 2:55:03 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="GORDON"
+  DTS:CreatorName="Gordon\gmannen"
+  DTS:DTSID="{26FD7955-0FDB-4725-8047-0D318C4D8205}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.1601.5"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{A3016F1E-8EC2-488E-A893-085E439811E0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{721C0349-EB16-47BC-8F8D-DFE21128CEF8}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[User::ExcelPath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\gmannen\Documents\Visual Studio 2015\Projects\C# Course - Step 45 of 46\PittsburghPenguins.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[GORDON.dbPens]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9EAA85D5-1141-4F1C-ADDD-1EFE377644C7}"
+      DTS:ObjectName="GORDON.dbPens">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=GORDON;Initial Catalog=dbPens;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{74EBB2C4-F066-424F-B746-59C74AA84BD8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExcelPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\gmannen\Documents\Visual Studio 2015\Projects\C# Course - Step 45 of 46\PittsburghPenguins.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1548C5BB-8CFF-4067-809D-01E26197439D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TableName">
+      <DTS:VariableValue
+        DTS:DataType="8">Penguins</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Import Excel"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{BCA11926-9A28-4523-81D7-1B281767E803}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import Excel">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Import Excel\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{AAF68401-B2C4-430C-A3BC-EA5D9CF95A93}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Import Excel\Data Flow Task\Excel Source"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Excel Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">Penguins$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Import Excel\Data Flow Task\Excel Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[StanleyCupChampions]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[StanleyCupChampions]"
+                          length="255"
+                          lineageId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[StanleyCupChampions]"
+                          name="StanleyCupChampions"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Year]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Year]"
+                          lineageId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Year]"
+                          name="Year"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[ConnSmytheTrophy]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[ConnSmytheTrophy]"
+                          length="255"
+                          lineageId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[ConnSmytheTrophy]"
+                          name="ConnSmytheTrophy"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Captain]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Captain]"
+                          length="255"
+                          lineageId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Captain]"
+                          name="Captain"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[StanleyCupChampions]"
+                          dataType="wstr"
+                          length="255"
+                          name="StanleyCupChampions" />
+                        <externalMetadataColumn
+                          refId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Year]"
+                          dataType="r8"
+                          name="Year" />
+                        <externalMetadataColumn
+                          refId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[ConnSmytheTrophy]"
+                          dataType="wstr"
+                          length="255"
+                          name="ConnSmytheTrophy" />
+                        <externalMetadataColumn
+                          refId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[Captain]"
+                          dataType="wstr"
+                          length="255"
+                          name="Captain" />
+                        <externalMetadataColumn
+                          refId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[F5]"
+                          dataType="wstr"
+                          length="255"
+                          name="F5" />
+                        <externalMetadataColumn
+                          refId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[F6]"
+                          dataType="wstr"
+                          length="255"
+                          name="F6" />
+                        <externalMetadataColumn
+                          refId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[F7]"
+                          dataType="wstr"
+                          length="255"
+                          name="F7" />
+                        <externalMetadataColumn
+                          refId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[F8]"
+                          dataType="wstr"
+                          length="255"
+                          name="F8" />
+                        <externalMetadataColumn
+                          refId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[F9]"
+                          dataType="wstr"
+                          length="255"
+                          name="F9" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[StanleyCupChampions]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[StanleyCupChampions]"
+                          name="StanleyCupChampions" />
+                        <outputColumn
+                          refId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Year]"
+                          dataType="r8"
+                          lineageId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Year]"
+                          name="Year" />
+                        <outputColumn
+                          refId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ConnSmytheTrophy]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ConnSmytheTrophy]"
+                          name="ConnSmytheTrophy" />
+                        <outputColumn
+                          refId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Captain]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[Captain]"
+                          name="Captain" />
+                        <outputColumn
+                          refId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Import Excel\Data Flow Task\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  validateExternalMetadata="False"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable">User::TableName</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">1</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Import Excel\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[GORDON.dbPens]"
+                      connectionManagerRefId="Package.ConnectionManagers[GORDON.dbPens]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Import Excel\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Import Excel\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StanleyCupChampions]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="StanleyCupChampions"
+                          externalMetadataColumnId="Package\Import Excel\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StanleyCupChampions]"
+                          lineageId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[StanleyCupChampions]" />
+                        <inputColumn
+                          refId="Package\Import Excel\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Year]"
+                          cachedDataType="r8"
+                          cachedName="Year"
+                          externalMetadataColumnId="Package\Import Excel\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                          lineageId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Year]" />
+                        <inputColumn
+                          refId="Package\Import Excel\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ConnSmytheTrophy]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="ConnSmytheTrophy"
+                          externalMetadataColumnId="Package\Import Excel\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ConnSmytheTrophy]"
+                          lineageId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[ConnSmytheTrophy]" />
+                        <inputColumn
+                          refId="Package\Import Excel\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Captain]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Captain"
+                          externalMetadataColumnId="Package\Import Excel\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Captain]"
+                          lineageId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Captain]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Import Excel\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StanleyCupChampions]"
+                          dataType="wstr"
+                          length="50"
+                          name="StanleyCupChampions" />
+                        <externalMetadataColumn
+                          refId="Package\Import Excel\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                          dataType="i4"
+                          name="Year" />
+                        <externalMetadataColumn
+                          refId="Package\Import Excel\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ConnSmytheTrophy]"
+                          dataType="wstr"
+                          length="50"
+                          name="ConnSmytheTrophy" />
+                        <externalMetadataColumn
+                          refId="Package\Import Excel\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Captain]"
+                          dataType="wstr"
+                          length="50"
+                          name="Captain" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Import Excel\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Import Excel\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Import Excel\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Import Excel\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Import Excel\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Import Excel\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Import Excel\Data Flow Task.Paths[Excel Source Output]"
+                  endId="Package\Import Excel\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Excel Source Output"
+                  startId="Package\Import Excel\Data Flow Task\Excel Source.Outputs[Excel Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Import Excel\Data Flow Task"
+          TopLeft="91,19" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="297,116"
+          Size="297,159"
+          Id="Package\Import Excel"
+          TopLeft="208,61" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Import Excel\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Import Excel\Data Flow Task\Excel Source"
+          TopLeft="181,78" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Import Excel\Data Flow Task\OLE DB Destination"
+          TopLeft="187,198" />
+        <EdgeLayout
+          Id="Package\Import Excel\Data Flow Task.Paths[Excel Source Output]"
+          TopLeft="250.5,120">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22,78"
+              Start="0,0"
+              End="22,70.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35"
+                    Point2="0,39"
+                    Point3="4,39" />
+                  <mssgle:LineSegment
+                    End="18,39" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18,39"
+                    Point2="22,39"
+                    Point3="22,43" />
+                  <mssgle:LineSegment
+                    End="22,70.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Excel\Data Flow Task\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import Excel\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
