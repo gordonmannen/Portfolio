@@ -3,7 +3,7 @@
 
 Write introduction
 
-Check out my LinkedIn and my blog to learn more about me.
+Check out my LinkedIn to learn more about me.
 
 #### HTML & CSS
 * [HTML & CSS  Examples](./HTML-CSS)
@@ -26,4 +26,4 @@ Check out my LinkedIn and my blog to learn more about me.
 * [File Transfer Drill](./C-Sharp/File-Transfer-Drill)
 
 #### Team Projects
-* Live-Project coming after C# Course
+* Intern project using ASP.NET MVC, Web Forms, and C# for a learning management system.
