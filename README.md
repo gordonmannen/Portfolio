@@ -3,7 +3,7 @@
 
 Previously I used my problem-solving skills and detail oriented, analytical mind in the world of accounting and finance, but now I have expanded my knowledge base.  As I added knowledge and skills within software development at the Tech Academy I have enjoyed the research, analysis, and the joys of finding creative solutions and am excited to continue my progress and continuous learning in the professional environment. 
 
-Please check out my [LinkedIn](https://www.linkedin.com/in/gordon-mannen) to learn more about me.
+Please check out my [LinkedIn](https://www.linkedin.com/in/gordon-mannen-b9184b118) to learn more about me.
 
 #### HTML & CSS
 * [HTML & CSS  Examples](./HTML-CSS)
@@ -22,6 +22,7 @@ Please check out my [LinkedIn](https://www.linkedin.com/in/gordon-mannen) to lea
 
 #### Team Projects
 * Intern project using ASP.NET MVC, Web Forms, and C# for a learning management system.
+
 
 
 
