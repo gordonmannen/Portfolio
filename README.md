@@ -21,7 +21,7 @@ Please check out my [LinkedIn](https://www.linkedin.com/in/gordon-mannen-b9184b1
 * [C# Examples](./C-Sharp)
 
 #### Team Projects
-* Intern project using ASP.NET MVC, Web Forms, and C# to modify the security and certain functionality for an existing learning management system.
+* [Team Project Examples](./Team-Projects)
 
 
 
@@ -1302,4 +1302,4 @@ Please check out my [LinkedIn](https://www.linkedin.com/in/gordon-mannen-b9184b1
 
 
 
- 
+ 
