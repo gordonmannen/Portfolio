@@ -5,7 +5,7 @@ This project was performed while participating in an internship for Prosper IT C
 
 The two primary objectives for this project were adding an additional layer of security using MVC Identity to differentiate roles and user access, and creating a Web Form template that could be applied wherever an essay question was asked in the curriculum so the student's answer could be automatically emailed to the instructors upon a button click event.
 
-Return to [portfolio](../gordonmannen/Portfolio)
+Return to [portfolio](../../)
 
 
 
