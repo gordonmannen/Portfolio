@@ -5,7 +5,7 @@ The starting point for this project was a simple program that could be run using
 
 To expand upon this base, I added a Tkinter GUI that allows the user to modify the text that will be generated with the webpage, the event to generate the content is now tied to a 'submit' button click.
 
-Finally, ... 
+Finally, to further expand the functionality, I modified the program and the Tkinter GUI to include interaction with SQLite to store what could essentially become content templates that could then be generated as webpages based on a selection chosen from a listbox.
 
 
  
