@@ -2,7 +2,7 @@
 
 # Add GUI to enable the user to set the body of the text.
 # Should have a submit button for initiating the process
-# of making the new web page/naviagiting to the new page.
+# of making the new web page/navigating to the new page.
 
 import sys
 import webbrowser
